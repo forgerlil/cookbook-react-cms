@@ -1,38 +1,205 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Nunito:wght@200;400;700&family=Oleo+Script&family=Pinyon+Script&family=Yeseva+One&display=swap');
+
+body {
+  margin: 0px;
+  padding: 0px;
+  background: #ffffff;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  color: #414247;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+nav {
+  background-color: rgb(246, 242, 242)
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.jumbotron {
+  background-color: rgba(255, 255, 255, 0.7); 
+  margin-top: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.jumbotron-container {
+  margin: 0 auto;
 }
 
-.App-link {
-  color: #61dafb;
+.jumbotron-row {
+  margin-bottom: 30px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h1 {
+  margin-top: 0px;
+  margin-left: 0px;
+  font-family: 'Pinyon Script', cursive;
+  font-size: 7rem;
+  color: #000000;
+  opacity: 1;  
+}
+
+h2 {
+  margin-top: 0px;
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 24px;
+  color: #1d1d1d;
+}
+
+h5 {
+  font-family: 'Yeseva One', cursive;
+  font-size: 2em;
+  color: #1d1d1d;
+}
+
+h6 {
+  font-family: 'Yeseva One', cursive;
+  font-size: 20px;
+  color: #1d1d1d;
+}
+
+hr {
+  display: none;
+}
+
+p,
+ul {
+  text-align: justify;
+  line-height: 160%;
+}
+
+ul {
+  list-style-type: square;
+}
+
+a {
+  color: #488081;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+footer a {
+border-radius: 50%;
+}
+
+ol {
+   margin-block-start: 0 !important;
+   padding-inline-start: 4%;
+}
+
+footer a:hover {
+background-color: rgba(0, 0, 0, 0.2);
+border-radius: 50%;
+transition: 0.5s;
+}
+
+.card-img-top {
+max-width: 100%;
+height: 20vw;
+object-fit: cover;
+}
+
+.main-recipe-img {
+  margin-top: 2%; 
+  max-width: 100%;
+}
+
+.bg-image {
+  background: url(https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  opacity: 0.3;
+  position: fixed;
+  height:100%;
+  width:100%;
+  z-index: -1;
+}
+
+.table {
+margin-bottom: 30px;
+}
+
+.winecard-text {
+margin-bottom: 2em;
+}
+
+.wine-card-style {
+  height: auto; 
+  border: solid 9px whitesmoke;
+}
+
+.diff-recipe-img {
+height: 150px;
+}
+
+.recipe-card {
+margin: 0 auto;
+width: 18rem;
+border: solid 8px whitesmoke;
+}
+
+footer {
+  background-color: rgba(255, 255, 255, 0.9); 
+  margin-top: 20px;
+}
+.copyright {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+@media screen and (max-width: 992px) {
+.page-title {
+  font-size: 6rem;
+}
+
+.wine-card {
+  margin-top: 20px;
+}
+
+.img-fluid {
+  height: 300px;
+}
+
+.winecard-text {
+  margin-bottom: 2em;
+}
+
+.recipe-card {
+  width: 400px;
+  margin-top: 20px;
+}
+
+.diff-recipe {
+  margin-bottom: 40px;
+}
+
+.diff-recipe-img {
+  height: 150px;
+}
+}
+
+@media screen and (max-width: 768px) {
+.img-fluid {
+  height: 200px;
+}
+
+.page-title {
+  font-size: 5rem;
+}
+
+h5 {
+  font-size: 1.7em;
+}
+}
+
+@media screen and (max-width: 576px) {
+.page-title {
+  font-size: 4.5rem;
+}
+
+h5 {
+  font-size: 1.5em;
+}
+}
+
+@media screen and (max-width: 400px) {
+.recipe-card {
+  width: 250px;
+}
 }

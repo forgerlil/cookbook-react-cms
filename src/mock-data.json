@@ -1,0 +1,19 @@
+{
+  "recipe": {
+    "name": "",
+    "description": "",
+    "ingredients": {
+        "qty": "",
+        "name": ""
+    },
+    "steps": [],
+    "image": ""
+  },
+
+  "wine": {
+    "name": "",
+    "description": "",
+    "url": "",
+    "image": ""
+  }
+}
