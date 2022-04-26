@@ -10,6 +10,7 @@ import Instagram from './Pictures/instagram.svg'
 import Linkedin from './Pictures/linkedin.svg'
 import Twitter from './Pictures/twitter.svg'
 import Lemon from './Pictures/lemon.png'
+import {Link, NavLink, Routes, Route, useParams } from 'react-router-dom'
 
 function App() {
   return (
