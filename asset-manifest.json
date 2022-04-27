@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/cookbook-react-cms/static/css/main.2f9f0b32.css",
+    "main.js": "/cookbook-react-cms/static/js/main.b3379500.js",
+    "static/js/787.acdf9d6b.chunk.js": "/cookbook-react-cms/static/js/787.acdf9d6b.chunk.js",
+    "static/media/lemon.png": "/cookbook-react-cms/static/media/lemon.dfc5f83f20578afdd793.png",
+    "static/media/samarkand_plov.jpeg": "/cookbook-react-cms/static/media/samarkand_plov.eb48db6e492877ceee80.jpeg",
+    "static/media/cauliflower-bowl.jpeg": "/cookbook-react-cms/static/media/cauliflower-bowl.837048ffe27ef247cb83.jpeg",
+    "static/media/asparagus-starter.jpg": "/cookbook-react-cms/static/media/asparagus-starter.e87279d5132cd1a8fc8b.jpg",
+    "static/media/instagram.svg": "/cookbook-react-cms/static/media/instagram.7a3b5420985bed403bbb0ab6ade4cc49.svg",
+    "index.html": "/cookbook-react-cms/index.html",
+    "static/media/github.svg": "/cookbook-react-cms/static/media/github.1dbcf7b2491be69d987cad6ab8eacebc.svg",
+    "static/media/linkedin.svg": "/cookbook-react-cms/static/media/linkedin.fe8721c9a6b838941416b840c12455b6.svg",
+    "static/media/twitter.svg": "/cookbook-react-cms/static/media/twitter.53610bbd633c359fc87dfb98ca342f38.svg",
+    "static/media/google.svg": "/cookbook-react-cms/static/media/google.7d820a24ab24e5928115bc102ae517a1.svg",
+    "static/media/facebook.svg": "/cookbook-react-cms/static/media/facebook.1bc0288746d9d8eec1ee87d3497c5b1f.svg",
+    "main.2f9f0b32.css.map": "/cookbook-react-cms/static/css/main.2f9f0b32.css.map",
+    "main.b3379500.js.map": "/cookbook-react-cms/static/js/main.b3379500.js.map",
+    "787.acdf9d6b.chunk.js.map": "/cookbook-react-cms/static/js/787.acdf9d6b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2f9f0b32.css",
+    "static/js/main.b3379500.js"
+  ]
+}
