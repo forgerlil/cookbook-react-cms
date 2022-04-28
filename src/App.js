@@ -4,6 +4,7 @@ import Footer from './components/Footer'
 import Mainrecipe from './components/Mainrecipe';
 import NavigationBar from './components/Navbar'
 import Linkcards from './components/Linkcards';
+import API from './API/API'
 
 /*
  React Router?
@@ -24,7 +25,7 @@ function App() {
         </div>             
         <div className="container jumbotron-container">
           <div className="row jumbotron-row">
-            <Mainrecipe />
+            <Mainrecipe data={fetchedData}/>
           </div>
           <div className="row card-section">
             <Linkcards />

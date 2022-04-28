@@ -42,7 +42,7 @@ function PrepSteps () {
 }
 
 
-export default function Mainrecipe () {
+export default function Mainrecipe ({ data }) {
   return (
     <>
     <div className="card col-12 col-lg-6">
@@ -54,7 +54,7 @@ export default function Mainrecipe () {
         <PrepSteps />
       </div>
     </div>
-    <Winecard />
+    <Winecard data={data}/>
     </>
   )
 }
