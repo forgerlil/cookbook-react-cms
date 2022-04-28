@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/cookbook-react-cms/static/css/main.2f9f0b32.css",
-    "main.js": "/cookbook-react-cms/static/js/main.b3379500.js",
+    "main.js": "/cookbook-react-cms/static/js/main.3b086519.js",
     "static/js/787.acdf9d6b.chunk.js": "/cookbook-react-cms/static/js/787.acdf9d6b.chunk.js",
     "static/media/lemon.png": "/cookbook-react-cms/static/media/lemon.dfc5f83f20578afdd793.png",
     "static/media/samarkand_plov.jpeg": "/cookbook-react-cms/static/media/samarkand_plov.eb48db6e492877ceee80.jpeg",
@@ -15,11 +15,11 @@
     "static/media/google.svg": "/cookbook-react-cms/static/media/google.7d820a24ab24e5928115bc102ae517a1.svg",
     "static/media/facebook.svg": "/cookbook-react-cms/static/media/facebook.1bc0288746d9d8eec1ee87d3497c5b1f.svg",
     "main.2f9f0b32.css.map": "/cookbook-react-cms/static/css/main.2f9f0b32.css.map",
-    "main.b3379500.js.map": "/cookbook-react-cms/static/js/main.b3379500.js.map",
+    "main.3b086519.js.map": "/cookbook-react-cms/static/js/main.3b086519.js.map",
     "787.acdf9d6b.chunk.js.map": "/cookbook-react-cms/static/js/787.acdf9d6b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2f9f0b32.css",
-    "static/js/main.b3379500.js"
+    "static/js/main.3b086519.js"
   ]
 }
