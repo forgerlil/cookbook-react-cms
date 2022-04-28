@@ -1,6 +1,6 @@
-export default function Winecard ({ data }) {
-  console.log(data)
-  console.log(typeof data.value);
+export default function Winecard () {
+  // console.log(data)
+  // console.log(typeof data.value);
   // const wineDetails = data.value.fields;
 
   return (

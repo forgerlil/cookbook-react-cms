@@ -25,7 +25,7 @@ function App() {
         </div>             
         <div className="container jumbotron-container">
           <div className="row jumbotron-row">
-            <Mainrecipe data={fetchedData}/>
+            <Mainrecipe />
           </div>
           <div className="row card-section">
             <Linkcards />

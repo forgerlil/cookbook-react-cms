@@ -54,7 +54,7 @@ export default function Mainrecipe ({ data }) {
         <PrepSteps />
       </div>
     </div>
-    <Winecard data={data}/>
+    <Winecard />
     </>
   )
 }
