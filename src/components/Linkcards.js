@@ -3,7 +3,8 @@ import Bowl from '../Pictures/cauliflower-bowl.jpeg'
 import Lemon from '../Pictures/lemon.png'
 import {Link} from 'react-router-dom'
 
-export default function Linkcards () {
+export default function Linkcards ({recipe}) {
+  // console.log(recipe)
   return (
     <> 
     <div className="col-lg-4 diff-recipe">

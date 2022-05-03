@@ -15,7 +15,7 @@ const getAllData = async () => {
 const getRecipes = async () => {
   const allRecipes = await client.getEntries({
     content_type: 'blog',
-    select: 'fields.recipeDescription,fields.recipeName,fields.recipePicture'
+    select: 'fields.recipeDescription,fields.recipeName,fields.recipePicture,fields.recipeShortDescription'
   })
   return allRecipes.items;
 }

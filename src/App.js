@@ -22,7 +22,6 @@ import { getRecipes, getWines } from './API/API'
 function App() {
   const [recipes, setRecipes] = useState(false)
   const [wines, setWines] = useState(false)
-  // client.getEntries().then(response => console.log(response));
 
   useEffect(() => {
     (async () => {
@@ -39,9 +38,9 @@ function App() {
       <main>
         <div>
           {/* {allData && allData.map(eachEntry => console.log(eachEntry.fields))} */}
-          {recipes && console.log(recipes)}
+          {/* {recipes && console.log(recipes)} */}
           {/* {recipes && console.log(recipes.map(eachRecipe => console.log(eachRecipe.fields.recipePicture[0].fields.file.url)))} */}
-          {wines && console.log(wines)}
+          {/* {wines && console.log(wines)} */}
         </div>
         <div className="jumbotron text-center">
           <h1 className="page-title">Oma's Cookblog</h1>
@@ -57,7 +56,7 @@ function App() {
             </Routes>
           </div>
           <div className="row card-section">
-            <Linkcards />
+            <Linkcards recipe={recipes} />
           </div>
         </div> 
       </main>

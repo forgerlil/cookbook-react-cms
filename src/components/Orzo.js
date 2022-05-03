@@ -47,7 +47,7 @@ function PrepSteps ({ prep }) {
 
 
 export default function OrzoRecipe ({ recipe, wines }) {
-  console.log(recipe)
+  // console.log(recipe)
   // console.log(wines)
   return (
     <>
