@@ -33,28 +33,34 @@ function IngrTable () {
   )
 }
 
-function PrepSteps () {
+function PrepSteps ({ prep }) {
+  const makeList = prep.split('\n')
+  // console.log(makeList)
   return (
     <ol>
-      <li>Heat oil in a pan.</li>
+      {makeList.map((eachStep, index) => {
+        return <li key={index}>{eachStep}</li>
+      })}
     </ol>
   )
 }
 
 
-export default function Mainrecipe ({ data }) {
+export default function LemonDrizzle ({ recipe, wines }) {
+//   console.log(recipe)
+  // console.log(wines)
   return (
     <>
     <div className="card col-12 col-lg-6">
       <img src={Plov} className="card-img-top img-fluid main-recipe-img" alt="test" />
       <div className="card-body">
-        <h5 className="card-title">How to make Uzbek plov</h5>
+        <h5 className="card-title">{recipe.fields.recipeName}</h5>
         <IngrTable />
         <h6>Preparation instructions</h6>
-        <PrepSteps />
+        <PrepSteps prep={recipe.fields.recipeDescription} />
       </div>
     </div>
-    <Winecard />
+    <Winecard wines={wines}/>
     </>
   )
 }

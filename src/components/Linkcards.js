@@ -1,6 +1,7 @@
 import Asparagus from '../Pictures/asparagus-starter.jpg'
 import Bowl from '../Pictures/cauliflower-bowl.jpeg'
 import Lemon from '../Pictures/lemon.png'
+import {Link} from 'react-router-dom'
 
 export default function Linkcards () {
   return (
