@@ -40,6 +40,7 @@ function App() {
         <div>
           {/* {allData && allData.map(eachEntry => console.log(eachEntry.fields))} */}
           {recipes && console.log(recipes)}
+          {/* {recipes && console.log(recipes.map(eachRecipe => console.log(eachRecipe.fields.recipePicture[0].fields.file.url)))} */}
           {wines && console.log(wines)}
         </div>
         <div className="jumbotron text-center">
@@ -49,10 +50,10 @@ function App() {
           <div className="row jumbotron-row">
             {/*Contentful changes fetched array's order depending on publish order. How to work around this?*/}
             <Routes>
-              <Route path="/" element={<OrzoRecipe recipe={recipes && recipes[0]} wine={wines && wines} />} />
-              <Route path="/burritobowl" element={<BurritoBowl recipe={recipes && recipes[1]} wine={wines && wines} />} />
-              <Route path="/lemondrizzle" element={<LemonDrizzle recipe={recipes && recipes[2]} wine={wines && wines} />} />
-              <Route path="/asparagus" element={<AsparagusRecipe recipe={recipes && recipes[3]} wine={wines && wines} />} />
+              <Route path="/orzo" element={<OrzoRecipe recipe={recipes[0]} wine={wines && wines} />} />
+              <Route path="/burritobowl" element={<BurritoBowl recipe={recipes[1]} wine={wines && wines} />} />
+              <Route path="/lemondrizzle" element={<LemonDrizzle recipe={recipes[2]} wine={wines && wines} />} />
+              <Route path="/asparagus" element={<AsparagusRecipe recipe={recipes[3]} wine={wines && wines} />} />
             </Routes>
           </div>
           <div className="row card-section">
@@ -66,3 +67,11 @@ function App() {
 }
 
 export default App;
+
+
+/*
+  Instead of creating each component:
+   render 1 root component (with a list of recipe card ie. with a preview)
+   inside recipe list, map a array for each object to render the recipe card
+  idea - can have the latest published recipe inside <LatestRecipe />
+*/

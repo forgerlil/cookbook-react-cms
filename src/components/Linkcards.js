@@ -12,7 +12,7 @@ export default function Linkcards () {
         <div className="card-body">
           <h6 className="card-title">Zesty Asparagus</h6>
           <p className="card-text">Sweet spring asparagus needs only lemon, butter and parmesan in this classic and classy recipe.</p>
-          <a href="zestyasparagus.html" className="btn btn-success btn-block">Asparagus Starter</a>
+          {/* <Link />*/}<a href="zestyasparagus.html" className="btn btn-success btn-block">Asparagus Starter</a>
         </div>
       </div>
     </div>
