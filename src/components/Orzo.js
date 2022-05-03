@@ -46,21 +46,22 @@ function PrepSteps ({ prep }) {
 }
 
 
-export default function OrzoRecipe ({ recipe, wines }) {
+export default function OrzoRecipe ({ recipe, wine }) {
   // console.log(recipe)
   // console.log(wines)
+  const recipeFields = recipe.fields;
   return (
     <>
     <div className="card col-12 col-lg-6">
-      <img src={Plov} className="card-img-top img-fluid main-recipe-img" alt="test" />
+      <img src={recipe.fields.recipePicture[0].fields.file.url} className="card-img-top img-fluid main-recipe-img" alt={recipeFields.recipePicture[0].fields.description} />
       <div className="card-body">
-        <h5 className="card-title">{recipe.fields.recipeName}</h5>
+        <h5 className="card-title">How to make {recipe.fields.recipeName}</h5>
         <IngrTable />
         <h6>Preparation instructions</h6>
         <PrepSteps prep={recipe.fields.recipeDescription} />
       </div>
     </div>
-    <Winecard wines={wines}/>
+    <Winecard wine={wine}/>
     </>
   )
 }

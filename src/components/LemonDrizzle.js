@@ -46,21 +46,21 @@ function PrepSteps ({ prep }) {
 }
 
 
-export default function LemonDrizzle ({ recipe, wines }) {
-//   console.log(recipe)
-  // console.log(wines)
+export default function LemonDrizzle ({ recipe, wine }) {
+  const recipeFields = recipe.fields;
+  console.log(recipe)
   return (
     <>
     <div className="card col-12 col-lg-6">
-      <img src={Plov} className="card-img-top img-fluid main-recipe-img" alt="test" />
+      <img src={recipeFields.recipePicture[0].fields.file.url} className="card-img-top img-fluid main-recipe-img" alt={recipeFields.recipePicture[0].fields.description} />
       <div className="card-body">
-        <h5 className="card-title">{recipe.fields.recipeName}</h5>
+        <h5 className="card-title">How to make {recipeFields.recipeName}</h5>
         <IngrTable />
         <h6>Preparation instructions</h6>
-        <PrepSteps prep={recipe.fields.recipeDescription} />
+        <PrepSteps prep={recipeFields.recipeDescription} />
       </div>
     </div>
-    <Winecard wines={wines}/>
+    <Winecard wine={wine}/>
     </>
   )
 }

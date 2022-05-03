@@ -31,15 +31,13 @@ function App() {
   }, []);
 
   return (
-    recipes &&
+    recipes && wines &&
     <>
       <img className="bg-image" alt="Varied dishes" />
       <NavigationBar />
       <main>
         <div>
-          {/* {allData && allData.map(eachEntry => console.log(eachEntry.fields))} */}
           {/* {recipes && console.log(recipes)} */}
-          {/* {recipes && console.log(recipes.map(eachRecipe => console.log(eachRecipe.fields.recipePicture[0].fields.file.url)))} */}
           {/* {wines && console.log(wines)} */}
         </div>
         <div className="jumbotron text-center">
@@ -49,10 +47,10 @@ function App() {
           <div className="row jumbotron-row">
             {/*Contentful changes fetched array's order depending on publish order. How to work around this?*/}
             <Routes>
-              <Route path="/orzo" element={<OrzoRecipe recipe={recipes[0]} wine={wines && wines} />} />
-              <Route path="/burritobowl" element={<BurritoBowl recipe={recipes[1]} wine={wines && wines} />} />
-              <Route path="/lemondrizzle" element={<LemonDrizzle recipe={recipes[2]} wine={wines && wines} />} />
-              <Route path="/asparagus" element={<AsparagusRecipe recipe={recipes[3]} wine={wines && wines} />} />
+              <Route path="/orzo" element={<OrzoRecipe recipe={recipes[0]} wine={wines[0]} />} />
+              <Route path="/burritobowl" element={<BurritoBowl recipe={recipes[1]} wine={wines[1]} />} />
+              <Route path="/lemondrizzle" element={<LemonDrizzle recipe={recipes[2]} wine={wines[2]} />} />
+              <Route path="/asparagus" element={<AsparagusRecipe recipe={recipes[3]} wine={wines[3]} />} />
             </Routes>
           </div>
           <div className="row card-section">
