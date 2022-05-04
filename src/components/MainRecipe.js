@@ -1,4 +1,3 @@
-import Plov from '../Pictures/samarkand_plov.jpeg'
 import Winecard from './Winecard'
 
 /*
@@ -46,14 +45,15 @@ function PrepSteps ({ prep }) {
 }
 
 
-export default function AsparagusRecipe ({ recipe, wine }) {
-//   console.log(recipe)
+export default function MainRecipe ({ recipe, wine }) {
+  console.log(recipe)
   // console.log(wines)
-  const recipeFields = recipe.fields;
+  // const recipeFields = recipe.fields;
+  
   return (
     <>
     <div className="card col-12 col-lg-6">
-      <img src={recipe.fields.recipePicture[0].fields.file.url} className="card-img-top img-fluid main-recipe-img" alt={recipeFields.recipePicture[0].fields.description} />
+      <img src={recipe.fields.recipePicture[0].fields.file.url} className="card-img-top img-fluid main-recipe-img" alt={recipe.fields.recipePicture[0].fields.description} />
       <div className="card-body">
         <h5 className="card-title">How to make {recipe.fields.recipeName}</h5>
         <IngrTable />

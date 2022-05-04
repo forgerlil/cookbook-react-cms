@@ -2,10 +2,7 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import {Link, NavLink, Routes, Route, useParams } from 'react-router-dom'
 import Footer from './components/Footer'
-import OrzoRecipe from './components/Orzo';
-import AsparagusRecipe from './components/Asparagus';
-import BurritoBowl from './components/BurritoBowl';
-import LemonDrizzle from './components/LemonDrizzle';
+import MainRecipe from './components/MainRecipe';
 import NavigationBar from './components/Navbar'
 import Linkcards from './components/Linkcards';
 import { getRecipes, getWines } from './API/API'
@@ -18,6 +15,16 @@ import { getRecipes, getWines } from './API/API'
   No React Router and have the components fetch all different recipes and display them differently? How to?
 */
 
+function sortRecipe (arr, title) {
+  // arr.map(recipe => {
+  //   if (recipe.fields.recipeName.includes(title)) {
+  //     return console.log(recipe.fields.recipeName)
+  //   } else {
+  //     return console.log(false);
+  //   }
+  // })
+  return arr
+}
 
 function App() {
   const [recipes, setRecipes] = useState(false)
@@ -37,7 +44,7 @@ function App() {
       <NavigationBar />
       <main>
         <div>
-          {/* {recipes && console.log(recipes)} */}
+          {recipes && console.log(recipes)}
           {/* {wines && console.log(wines)} */}
         </div>
         <div className="jumbotron text-center">
@@ -47,10 +54,11 @@ function App() {
           <div className="row jumbotron-row">
             {/*Contentful changes fetched array's order depending on publish order. How to work around this?*/}
             <Routes>
-              <Route path="/orzo" element={<OrzoRecipe recipe={recipes[0]} wine={wines[0]} />} />
-              <Route path="/burritobowl" element={<BurritoBowl recipe={recipes[1]} wine={wines[1]} />} />
-              <Route path="/lemondrizzle" element={<LemonDrizzle recipe={recipes[2]} wine={wines[2]} />} />
-              <Route path="/asparagus" element={<AsparagusRecipe recipe={recipes[3]} wine={wines[3]} />} />
+              {/* <Route path="/orzo" element={<MainRecipe recipe={recipes[0]} wine={wines[0]} />} /> */}
+              <Route path="/orzo" element={<MainRecipe recipe={sortRecipe(recipes, 'Creamy Mushroom Asparagus Orzo')} wine={wines[0]} />} />
+              <Route path="/burritobowl" element={<MainRecipe recipe={sortRecipe(recipes, 'Cauliflower Rice Burrito Bowl')} wine={wines[1]} />} />
+              <Route path="/lemondrizzle" element={<MainRecipe recipe={sortRecipe(recipes, 'Lemon Drizzle Cake')} wine={wines[2]} />} />
+              <Route path="/asparagus" element={<MainRecipe recipe={sortRecipe(recipes, 'Zesty Asparagus')} wine={wines[3]} />} />
             </Routes>
           </div>
           <div className="row card-section">

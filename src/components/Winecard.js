@@ -1,5 +1,5 @@
 export default function Winecard ({wine}) {
-  console.log(wine)
+  // console.log(wine)
   const wineFields = wine.fields
 
   return (
