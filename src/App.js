@@ -7,12 +7,11 @@ import NavigationBar from "./components/Navbar";
 import Linkcards from "./components/Linkcards";
 import { getAllData, getRecipes } from "./API/API";
 
+
 /*
- React Router?
-	Paths: "/plov", "/zesty_asparagus", "/lemon_drizzle", "/cauliflower_burrito_bowl"
-	Each path fetches only their relevant info and displays into screen, OR each different path has the fetch return different chunks of info?
-	 VS
-	No React Router and have the components fetch all different recipes and display them differently? How to?
+  1. Creating a root component that will be rendered on the root path (by using React Router)
+	2. Set <Link> components from React Router in each card to set the path to the relevant recipe, and add 
+	      classes to the link so Bootstrap will style the Link component adequately
 */
 
 function RecipeRoutes({recipes}) {
@@ -26,12 +25,10 @@ function RecipeRoutes({recipes}) {
 
 function App() {
 	const [recipes, setRecipes] = useState(false);
-	// const [allData, setAllData] = useState(false);
 
 	useEffect(() => {
 		(async () => {
 			setRecipes(await getRecipes());
-			// setAllData(await getAllData());
 		})();
 	}, []);
 
@@ -43,7 +40,6 @@ function App() {
 				<main>
 					<div>
 						{/* {recipes && console.log(recipes)} */}
-						{/* {allData && console.log(allData)} */}
 					</div>
 					<div className="jumbotron text-center">
 						<h1 className="page-title">Oma's Cookblog</h1>
@@ -64,11 +60,3 @@ function App() {
 }
 
 export default App;
-
-/*
-	Instead of creating each component:
-	 render 1 root component (with a list of recipe card ie. with a preview)
-	 inside recipe list, map a array for each object to render the recipe card
-	 idea - can have the latest published recipe inside <LatestRecipe />
-
-*/

@@ -4,7 +4,7 @@ import Lemon from '../Pictures/lemon.png'
 import {Link} from 'react-router-dom'
 
 export default function Linkcards ({recipe}) {
-  // console.log(recipe)
+  // console.log(recipe[0].fields)
   return (
     <> 
     <div className="col-lg-4 diff-recipe">
@@ -13,7 +13,7 @@ export default function Linkcards ({recipe}) {
         <div className="card-body">
           <h6 className="card-title">Zesty Asparagus</h6>
           <p className="card-text">Sweet spring asparagus needs only lemon, butter and parmesan in this classic and classy recipe.</p>
-          {/* <Link />*/}<a href="zestyasparagus.html" className="btn btn-success btn-block">Asparagus Starter</a>
+          <a href="zestyasparagus.html" className="btn btn-success btn-block">Asparagus Starter</a>
         </div>
       </div>
     </div>
