@@ -1,82 +1,74 @@
-import './App.css';
-import { useState, useEffect } from 'react';
-import {Link, NavLink, Routes, Route, useParams } from 'react-router-dom'
-import Footer from './components/Footer'
-import MainRecipe from './components/MainRecipe';
-import NavigationBar from './components/Navbar'
-import Linkcards from './components/Linkcards';
-import { getRecipes, getWines } from './API/API'
+import "./App.css";
+import { useState, useEffect } from "react";
+import { Link, NavLink, Routes, Route, useParams } from "react-router-dom";
+import Footer from "./components/Footer";
+import MainRecipe from "./components/MainRecipe";
+import NavigationBar from "./components/Navbar";
+import Linkcards from "./components/Linkcards";
+import { getAllData, getRecipes } from "./API/API";
 
 /*
  React Router?
-  Paths: "/plov", "/zesty_asparagus", "/lemon_drizzle", "/cauliflower_burrito_bowl"
-  Each path fetches only their relevant info and displays into screen, OR each different path has the fetch return different chunks of info?
-   VS
-  No React Router and have the components fetch all different recipes and display them differently? How to?
+	Paths: "/plov", "/zesty_asparagus", "/lemon_drizzle", "/cauliflower_burrito_bowl"
+	Each path fetches only their relevant info and displays into screen, OR each different path has the fetch return different chunks of info?
+	 VS
+	No React Router and have the components fetch all different recipes and display them differently? How to?
 */
 
-function sortRecipe (arr, title) {
-  // arr.map(recipe => {
-  //   if (recipe.fields.recipeName.includes(title)) {
-  //     return console.log(recipe.fields.recipeName)
-  //   } else {
-  //     return console.log(false);
-  //   }
-  // })
-  return arr
+function RecipeRoutes({recipes}) {
+	return (
+		<Routes>
+		{recipes.map((recipe, index) => <Route key={index} path={recipe.fields.routePath} element={<MainRecipe recipe={recipe} />} /> )}
+		</Routes>
+	)
 }
 
+
 function App() {
-  const [recipes, setRecipes] = useState(false)
-  const [wines, setWines] = useState(false)
+	const [recipes, setRecipes] = useState(false);
+	// const [allData, setAllData] = useState(false);
 
-  useEffect(() => {
-    (async () => {
-      setRecipes(await getRecipes());
-      setWines(await getWines());
-    })();
-  }, []);
+	useEffect(() => {
+		(async () => {
+			setRecipes(await getRecipes());
+			// setAllData(await getAllData());
+		})();
+	}, []);
 
-  return (
-    recipes && wines &&
-    <>
-      <img className="bg-image" alt="Varied dishes" />
-      <NavigationBar />
-      <main>
-        <div>
-          {recipes && console.log(recipes)}
-          {/* {wines && console.log(wines)} */}
-        </div>
-        <div className="jumbotron text-center">
-          <h1 className="page-title">Oma's Cookblog</h1>
-        </div>             
-        <div className="container jumbotron-container">
-          <div className="row jumbotron-row">
-            {/*Contentful changes fetched array's order depending on publish order. How to work around this?*/}
-            <Routes>
-              {/* <Route path="/orzo" element={<MainRecipe recipe={recipes[0]} wine={wines[0]} />} /> */}
-              <Route path="/orzo" element={<MainRecipe recipe={sortRecipe(recipes, 'Creamy Mushroom Asparagus Orzo')} wine={wines[0]} />} />
-              <Route path="/burritobowl" element={<MainRecipe recipe={sortRecipe(recipes, 'Cauliflower Rice Burrito Bowl')} wine={wines[1]} />} />
-              <Route path="/lemondrizzle" element={<MainRecipe recipe={sortRecipe(recipes, 'Lemon Drizzle Cake')} wine={wines[2]} />} />
-              <Route path="/asparagus" element={<MainRecipe recipe={sortRecipe(recipes, 'Zesty Asparagus')} wine={wines[3]} />} />
-            </Routes>
-          </div>
-          <div className="row card-section">
-            <Linkcards recipe={recipes} />
-          </div>
-        </div> 
-      </main>
-      <Footer />
-    </>
-  );
+	return (
+		recipes && (
+			<>
+				<img className="bg-image" alt="Varied dishes" />
+				<NavigationBar />
+				<main>
+					<div>
+						{/* {recipes && console.log(recipes)} */}
+						{/* {allData && console.log(allData)} */}
+					</div>
+					<div className="jumbotron text-center">
+						<h1 className="page-title">Oma's Cookblog</h1>
+					</div>
+					<div className="container jumbotron-container">
+						<div className="row jumbotron-row">
+							<RecipeRoutes recipes={recipes}/>
+						</div>
+						<div className="row card-section">
+							<Linkcards recipe={recipes} />
+						</div>
+					</div>
+				</main>
+				<Footer />
+			</>
+		)
+	);
 }
 
 export default App;
 
-
 /*
-  Instead of creating each component:
-   render 1 root component (with a list of recipe card ie. with a preview)
-   inside recipe list, map a array for each object to render the recipe card
-  idea - can have the latest published recipe inside <LatestRecipe />
+	Instead of creating each component:
+	 render 1 root component (with a list of recipe card ie. with a preview)
+	 inside recipe list, map a array for each object to render the recipe card
+	 idea - can have the latest published recipe inside <LatestRecipe />
+
 */

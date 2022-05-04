@@ -15,28 +15,14 @@ const getAllData = async () => {
 const getRecipes = async () => {
   const allRecipes = await client.getEntries({
     content_type: 'blog',
-    select: 'fields.recipeDescription,fields.recipeName,fields.recipePicture,fields.recipeShortDescription'
+    select: 'fields.recipeName,fields.routePath,fields.recipeIngredients,fields.recipeDescription,fields.recipePicture,fields.recipeShortDescription,fields.wine',
+    order: 'fields.routePath'
   })
   return allRecipes.items;
 }
 
-const getWines = async () => {
-  const allWines = await client.getEntries({
-    content_type: 'winePairing'
-  })
-  return allWines.items;
-}
-
-const getPhotos = async () => {
-  const allPhotos = await client.getEntries({
-    
-  })
-  return allPhotos
-}
 
 export { 
   getAllData,
-  getRecipes,
-  getWines,
-  getPhotos
+  getRecipes
 }

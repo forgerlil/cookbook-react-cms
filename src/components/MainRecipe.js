@@ -1,13 +1,7 @@
 import Winecard from './Winecard'
+import { BLOCKS, MARKS } from '@contentful/rich-text-types';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
-/*
- Goals:
- 1. Display main recipe's image
- 2. Generate table with ingredients and respective weights
- 3. Generate list with preparation steps
- 
- React Router?
-*/
 
 function IngrTable () {
   return (
@@ -45,10 +39,8 @@ function PrepSteps ({ prep }) {
 }
 
 
-export default function MainRecipe ({ recipe, wine }) {
+export default function MainRecipe ({ recipe }) {
   console.log(recipe)
-  // console.log(wines)
-  // const recipeFields = recipe.fields;
   
   return (
     <>
@@ -61,7 +53,7 @@ export default function MainRecipe ({ recipe, wine }) {
         <PrepSteps prep={recipe.fields.recipeDescription} />
       </div>
     </div>
-    <Winecard wine={wine}/>
+    <Winecard wine={recipe.fields.wine.fields}/>
     </>
   )
 }
