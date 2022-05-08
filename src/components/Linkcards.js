@@ -1,18 +1,15 @@
-import Asparagus from '../Pictures/asparagus-starter.jpg'
-import Bowl from '../Pictures/cauliflower-bowl.jpeg'
-import Lemon from '../Pictures/lemon.png'
 import {Link} from 'react-router-dom'
 
 
 export default function LinkCards({ recipe }) {
   return(
     <>
-      {recipe.map((oneRecipe) => <Recipe recipes={oneRecipe} />)};
+      {recipe.map((oneRecipe) => <Recipe recipes={oneRecipe} />)}
     </>
   )
 }
  function Recipe ({ recipes }) {
-   console.log(recipes)
+  //  console.log(recipes)
   return (
     <> 
     <div className="col-lg-4 diff-recipe">
