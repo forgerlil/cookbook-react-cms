@@ -16,7 +16,7 @@ function IngrTable({ recipe }) {
       ),
 
       [BLOCKS.TABLE_ROW]: (node, children) => {
-        console.log(children);
+        // console.log(children);
         const isHeader = children.some((child) => child.type === "th");
 
         return isHeader ? (
@@ -63,7 +63,7 @@ export default function MainRecipe({ recipe }) {
 
   return (
     <>
-      <div className="card col-12 col-lg-6">
+      <div className="card col-12 col-lg-6" id="main-recipe-card">
         <img
           src={recipe.fields.recipePicture[0].fields.file.url}
           className="card-img-top img-fluid main-recipe-img"

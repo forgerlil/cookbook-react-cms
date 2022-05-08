@@ -1,15 +1,36 @@
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
 
 export default function LinkCards({ recipe }) {
   return(
     <>
-      {recipe.map((oneRecipe) => <Recipe recipes={oneRecipe} />)}
+      {recipe.map((oneRecipe, index) => <Recipe key={index} recipes={oneRecipe} />)}
     </>
   )
 }
  function Recipe ({ recipes }) {
-  //  console.log(recipes)
+  console.log(recipes);
+  const recipeType = recipes.fields.recipeType;
+
+  const recipeTypeCheck = recipeType => {
+    if (recipeType === 'Main') {
+      return 'btn btn-primary btn-block'
+    } 
+    if (recipeType === 'Starter') {
+      return 'btn btn-success btn-block'
+    }
+    if (recipeType === 'Dessert') {
+      return 'btn btn-warning btn-block'
+    }
+  }
+
+  const scrollOnClick = () => {
+    // e.document.getElementById('main-recipe-card').scrollIntoView({
+    //   behavior: 'smooth'
+    // });
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
+  }
+
   return (
     <> 
     <div className="col-lg-4 diff-recipe">
@@ -18,7 +39,7 @@ export default function LinkCards({ recipe }) {
         <div className="card-body">
           <h6 className="card-title">{recipes.fields.recipeName}</h6>
           <p className="card-text">{recipes.fields.recipeShortDescription}</p>
-          {/* <Link />*/}<a href="zestyasparagus.html" className="btn btn-success btn-block">{recipes.fields.recipeName}</a>
+          <NavLink to={recipes.fields.routePath} className={recipeTypeCheck(recipeType)} onClick={scrollOnClick()} >{recipes.fields.recipeName}</NavLink> 
         </div>
       </div>
     </div>
