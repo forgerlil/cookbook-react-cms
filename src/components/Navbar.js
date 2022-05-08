@@ -1,6 +1,8 @@
 import WineLogo from '../Pictures/FoodWine.jpeg'
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
+import { NavbarDropdownRecipes, NavbarDropdownWines } from './NavbarDropdown';
 import { Button, Navbar, Nav, NavDropdown, Container, Form, FormControl } from 'react-bootstrap';
+
 
 export default function NavigationBar ({ recipes }) {
   //console.log(recipes)
@@ -25,15 +27,11 @@ export default function NavigationBar ({ recipes }) {
                         <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '100px' }} navbarScroll>
                             <Nav.Link href='/' className="">About</Nav.Link>
                               <NavDropdown title="Recipe" id="navbarScrollingDropdownRecipe">
-                                <NavDropdown.Item href="#action3">Cauliflower Rice Burrito</NavDropdown.Item>
-                                <NavDropdown.Item href="#action4">Zesty Asparagus</NavDropdown.Item>
-                                <NavDropdown.Item href="#action5">Lemon Drizzle Cake</NavDropdown.Item>
+                                {recipes.map((oneRecipe, index) => <NavbarDropdownRecipes key={index} recipes={oneRecipe} />)}
                                 <NavDropdown.Divider />
                               </NavDropdown>
                               <NavDropdown title="Wine" id="navbarScrollingDropdownWine">
-                                <NavDropdown.Item href="#action6">Red Wine</NavDropdown.Item>
-                                <NavDropdown.Item href="#action7">White Wine</NavDropdown.Item>
-                                <NavDropdown.Item href="#action8">Rose Wine</NavDropdown.Item>
+                              {recipes.map((oneRecipe, index) => <NavbarDropdownWines key={index} recipes={oneRecipe} />)}
                                 <NavDropdown.Divider />
                               </NavDropdown>
                           </Nav>
