@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Link, NavLink, Routes, Route, useParams } from "react-router-dom";
 import Footer from "./components/Footer";
 import MainRecipe from "./components/MainRecipe";
+import Introduction from "./components/Introduction";
 import NavigationBar from "./components/Navbar";
 import Linkcards from "./components/Linkcards";
 import { getAllData, getRecipes } from "./API/API";
@@ -17,7 +18,8 @@ import { getAllData, getRecipes } from "./API/API";
 function RecipeRoutes({recipes}) {
 	return (
 		<Routes>
-		{recipes.map((recipe, index) => <Route key={index} path={recipe.fields.routePath} element={<MainRecipe recipe={recipe} />} /> )}
+      <Route path='/' element={<Introduction recipes={recipes} />} /> 
+		  {recipes.map((recipe, index) => <Route key={index} path={recipe.fields.routePath} element={<MainRecipe recipe={recipe} />} /> )}
 		</Routes>
 	)
 }
@@ -47,9 +49,6 @@ function App() {
 					<div className="container jumbotron-container">
 						<div className="row jumbotron-row">
 							<RecipeRoutes recipes={recipes}/>
-						</div>
-						<div className="row card-section">
-							<Linkcards recipe={recipes} />
 						</div>
 					</div>
 				</main>

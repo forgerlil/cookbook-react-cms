@@ -1,4 +1,5 @@
-import {NavLink} from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 
 export default function LinkCards({ recipe }) {
@@ -8,7 +9,22 @@ export default function LinkCards({ recipe }) {
     </>
   )
 }
- function Recipe ({ recipes }) {
+
+export function ScrollOnClick() {
+  // e.document.getElementById('main-recipe-card').scrollIntoView({
+  //   behavior: 'smooth'
+  // });
+  //window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
+function Recipe ({ recipes }) {
   console.log(recipes);
   const recipeType = recipes.fields.recipeType;
 
@@ -24,13 +40,6 @@ export default function LinkCards({ recipe }) {
     }
   }
 
-  const scrollOnClick = () => {
-    // e.document.getElementById('main-recipe-card').scrollIntoView({
-    //   behavior: 'smooth'
-    // });
-    window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
-  }
-
   return (
     <> 
     <div className="col-lg-4 diff-recipe">
@@ -39,7 +48,7 @@ export default function LinkCards({ recipe }) {
         <div className="card-body">
           <h6 className="card-title">{recipes.fields.recipeName}</h6>
           <p className="card-text">{recipes.fields.recipeShortDescription}</p>
-          <NavLink to={recipes.fields.routePath} className={recipeTypeCheck(recipeType)} onClick={scrollOnClick()} >{recipes.fields.recipeName}</NavLink> 
+          <NavLink to={recipes.fields.routePath} className={recipeTypeCheck(recipeType)} onClick={ScrollOnClick} >{recipes.fields.recipeName}</NavLink> 
         </div>
       </div>
     </div>

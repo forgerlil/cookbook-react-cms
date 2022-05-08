@@ -188,6 +188,11 @@ h5 {
 }
 }
 
+.intro-title {
+  font-family: 'Yeseva One', cursive;
+  font-size: 2.3rem;
+}
+
 @media screen and (max-width: 576px) {
 .page-title {
   font-size: 4.5rem;
