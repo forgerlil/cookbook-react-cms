@@ -1,7 +1,9 @@
 import WineLogo from '../Pictures/FoodWine.jpeg'
+import { NavLink } from 'react-router-dom'
 import { Button, Navbar, Nav, NavDropdown, Container, Form, FormControl } from 'react-bootstrap';
 
-export default function NavigationBar () {
+export default function NavigationBar ({ recipes }) {
+  //console.log(recipes)
   return (
       <header>
             <Navbar bg="light" expand="lg">
@@ -21,7 +23,7 @@ export default function NavigationBar () {
                     <div className="container d-flex flex-row justify-content-space" >
                       <div>
                         <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '100px' }} navbarScroll>
-                            <Nav.Link href="#action1">About</Nav.Link>
+                            <NavLink to='/'>About</NavLink>
                               <NavDropdown title="Recipe" id="navbarScrollingDropdownRecipe">
                                 <NavDropdown.Item href="#action3">Cauliflower Rice Burrito</NavDropdown.Item>
                                 <NavDropdown.Item href="#action4">Zesty Asparagus</NavDropdown.Item>

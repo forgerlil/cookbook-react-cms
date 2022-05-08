@@ -1,15 +1,13 @@
+import { useEffect, useState } from 'react'
 import {NavLink} from 'react-router-dom'
 
 
-export default function LinkCards({ recipe }) {
-  return(
-    <>
-      {recipe.map((oneRecipe, index) => <Recipe key={index} recipes={oneRecipe} />)}
-    </>
-  )
+export default function LinkCards({ recipe, giveNode }) {
+  return recipe.map((oneRecipe, index) => <Recipe key={index} recipes={oneRecipe} recipeNode={giveNode} />)
 }
- function Recipe ({ recipes }) {
-  console.log(recipes);
+
+function Recipe ({ recipes, recipeNode }) {
+  const recipeCard = recipeNode;
   const recipeType = recipes.fields.recipeType;
 
   const recipeTypeCheck = recipeType => {
@@ -24,11 +22,19 @@ export default function LinkCards({ recipe }) {
     }
   }
 
+
+
   const scrollOnClick = () => {
     // e.document.getElementById('main-recipe-card').scrollIntoView({
     //   behavior: 'smooth'
     // });
-    window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
+    // window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
+
+    // useEffect(() => {
+    //   recipeCard.scrollIntoView()
+    // }, [])
+
+    // recipeCard.scrollIntoView()
   }
 
   return (
@@ -39,7 +45,7 @@ export default function LinkCards({ recipe }) {
         <div className="card-body">
           <h6 className="card-title">{recipes.fields.recipeName}</h6>
           <p className="card-text">{recipes.fields.recipeShortDescription}</p>
-          <NavLink to={recipes.fields.routePath} className={recipeTypeCheck(recipeType)} onClick={scrollOnClick()} >{recipes.fields.recipeName}</NavLink> 
+          <NavLink to={recipes.fields.routePath} onClick={scrollOnClick()} >{recipes.fields.recipeName}</NavLink> 
         </div>
       </div>
     </div>
