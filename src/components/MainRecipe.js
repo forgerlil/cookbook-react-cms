@@ -18,7 +18,6 @@ function IngrTable({ recipe }) {
       ),
 
       [BLOCKS.TABLE_ROW]: (node, children) => {
-        // console.log(children);
         const isHeader = children.some((child) => child.type === "th");
 
         return isHeader ? (
@@ -50,7 +49,6 @@ function IngrTable({ recipe }) {
 
 function PrepSteps({ prep }) {
   const makeList = prep.split("\n");
-  // console.log(makeList)
   return (
     <ol>
       {makeList.map((eachStep, index) => {
@@ -60,13 +58,13 @@ function PrepSteps({ prep }) {
   );
 }
 
-export default function MainRecipe({ allRecipes, recipe }) {
-  // console.log(recipe)
+export default function MainRecipe({ allRecipes, recipe, getNode }) {
   const mainRecipeDiv = useRef()
 
-  // useEffect(() => {
-  //   console.log(mainRecipeDiv)
-  // }, [])
+  useEffect(() => {
+    getNode(mainRecipeDiv.current)
+    mainRecipeDiv.current.scrollIntoView({behavior: "smooth"})
+  }, [])
 
   return (
     <>
@@ -78,7 +76,6 @@ export default function MainRecipe({ allRecipes, recipe }) {
         />
         <div className="card-body">
           <h5 className="card-title">How to make {recipe.fields.recipeName}</h5>
-
           <IngrTable recipe={recipe} />
           <h6>Preparation instructions</h6>
           <PrepSteps prep={recipe.fields.recipeDescription} />

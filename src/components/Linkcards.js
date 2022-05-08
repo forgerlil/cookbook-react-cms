@@ -13,13 +13,13 @@ function Recipe ({ recipes, recipeNode }) {
 
   const recipeTypeCheck = recipeType => {
     if (recipeType === 'Main') {
-      setRecipeType('btn btn-primary btn-block')
+      return 'btn btn-primary btn-block'
     } 
     if (recipeType === 'Starter') {
-      setRecipeType('btn btn-success btn-block')
+      return 'btn btn-success btn-block'
     }
     if (recipeType === 'Dessert') {
-      setRecipeType('btn btn-warning btn-block')
+      return 'btn btn-warning btn-block'
     }
   }
 
@@ -28,12 +28,12 @@ function Recipe ({ recipes, recipeNode }) {
   }, [])
 
   const handleClick = (recipeCard) => {
-    recipeCard.scrollIntoView()
+    recipeCard.scrollIntoView({behavior: "smooth"})
   }
 
   return (
     <> 
-    <div className="col-lg-4 diff-recipe">
+    <div className="col-lg-4 diff-recipe mt-5">
       <div className="card recipe-card">
         <img src={recipes.fields.recipePicture[0].fields.file.url} className="card-img-top diff-recipe-img" alt="..." />
         <div className="card-body">
