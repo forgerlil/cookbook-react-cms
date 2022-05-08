@@ -6,7 +6,7 @@ export default function Introduction({ recipes }) {
     return (
         <div className='jumbotron'>
             <h2 className="text-center intro-title" >Let's Eat!</h2>
-            <h4 className="text-center p-5 mb-5 mt-2" >
+            <h4 className="text-center p-5 mt-2" >
                 Do you enjoy warm and filling meals? Here we offer you some of the best 
                 recipes of the food around the world. They are homey and filling, and they
                 will let you taste a bit of each country's cuisine, wheter it is a satisfying
