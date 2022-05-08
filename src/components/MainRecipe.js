@@ -1,4 +1,6 @@
 import Winecard from "./Winecard";
+import LinkCards from './Linkcards';
+import { useEffect, useRef } from 'react';
 import { BLOCKS } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
@@ -58,12 +60,17 @@ function PrepSteps({ prep }) {
   );
 }
 
-export default function MainRecipe({ recipe }) {
+export default function MainRecipe({ allRecipes, recipe }) {
   // console.log(recipe)
+  const mainRecipeDiv = useRef()
+
+  // useEffect(() => {
+  //   console.log(mainRecipeDiv)
+  // }, [])
 
   return (
     <>
-      <div className="card col-12 col-lg-6" id="main-recipe-card">
+      <div ref={mainRecipeDiv} className="card col-12 col-lg-6" id="main-recipe-card">
         <img
           src={recipe.fields.recipePicture[0].fields.file.url}
           className="card-img-top img-fluid main-recipe-img"
@@ -78,6 +85,7 @@ export default function MainRecipe({ recipe }) {
         </div>
       </div>
       <Winecard wine={recipe.fields.wine.fields} />
+      <LinkCards giveNode={mainRecipeDiv && mainRecipeDiv.current} recipe={allRecipes} />
     </>
   );
 }

@@ -7,7 +7,7 @@ export default function Winecard ({wine}) {
           <div className="card-body">
             <h5 className="card-title">{wine.winePairingName}</h5> 
               <p className="card-text winecard-text">{wine.winePairingDescription}</p>
-              <a href="https://www.amazon.de/-/en/dp/B0867WY225/ref=sr_1_7?crid=OWBYDWIWUT8R&keywords=kindsmarauli+rotwein&qid=1648593595&sprefix=kingsmaraul%2Caps%2C92&sr=8-7"  className="btn btn-primary btn-block">Order our wine suggestion</a>                 
+              <a href={console.log(wine)} className="btn btn-primary btn-block">Order our wine suggestion</a>                 
           </div>
       </div>
     </div>

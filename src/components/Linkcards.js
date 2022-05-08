@@ -1,43 +1,34 @@
 import { NavLink, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 
-export default function LinkCards({ recipe }) {
-  return(
-    <>
-      {recipe.map((oneRecipe, index) => <Recipe key={index} recipes={oneRecipe} />)}
-    </>
-  )
+export default function LinkCards({ recipe, giveNode }) {
+  // console.log(giveNode)
+  return recipe.map((oneRecipe, index) => <Recipe key={index} recipes={oneRecipe} recipeNode={giveNode} />)
 }
 
-export function ScrollOnClick() {
-  // e.document.getElementById('main-recipe-card').scrollIntoView({
-  //   behavior: 'smooth'
-  // });
-  //window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null;
-}
-
-function Recipe ({ recipes }) {
-  console.log(recipes);
-  const recipeType = recipes.fields.recipeType;
+function Recipe ({ recipes, recipeNode }) {
+  const recipeCard = recipeNode;
+  const [recipeType, setRecipeType] = useState(recipes.fields.recipeType)
 
   const recipeTypeCheck = recipeType => {
     if (recipeType === 'Main') {
-      return 'btn btn-primary btn-block'
+      setRecipeType('btn btn-primary btn-block')
     } 
     if (recipeType === 'Starter') {
-      return 'btn btn-success btn-block'
+      setRecipeType('btn btn-success btn-block')
     }
     if (recipeType === 'Dessert') {
-      return 'btn btn-warning btn-block'
+      setRecipeType('btn btn-warning btn-block')
     }
+  }
+
+  useEffect(() => {
+
+  }, [])
+
+  const handleClick = (recipeCard) => {
+    recipeCard.scrollIntoView()
   }
 
   return (
@@ -48,7 +39,7 @@ function Recipe ({ recipes }) {
         <div className="card-body">
           <h6 className="card-title">{recipes.fields.recipeName}</h6>
           <p className="card-text">{recipes.fields.recipeShortDescription}</p>
-          <NavLink to={recipes.fields.routePath} className={recipeTypeCheck(recipeType)} onClick={ScrollOnClick} >{recipes.fields.recipeName}</NavLink> 
+          <NavLink to={recipes.fields.routePath}><button type="button" className={recipeTypeCheck(recipeType)} onClick={() => {handleClick(recipeCard)}}>{recipes.fields.recipeName}</button></NavLink> 
         </div>
       </div>
     </div>
