@@ -23,7 +23,7 @@ export default function NavigationBar ({ recipes }) {
                     <div className="container d-flex flex-row justify-content-space" >
                       <div>
                         <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '100px' }} navbarScroll>
-                            <NavLink to='/'>About</NavLink>
+                            <Nav.Link href='/' className="">About</Nav.Link>
                               <NavDropdown title="Recipe" id="navbarScrollingDropdownRecipe">
                                 <NavDropdown.Item href="#action3">Cauliflower Rice Burrito</NavDropdown.Item>
                                 <NavDropdown.Item href="#action4">Zesty Asparagus</NavDropdown.Item>
