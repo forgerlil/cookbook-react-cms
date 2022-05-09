@@ -7,19 +7,22 @@ import Introduction from "./components/Introduction";
 import NavigationBar from "./components/Navbar";
 import { getRecipes } from "./API/API";
 
-
+// This component renders all routes for the page
 function RecipeRoutes({recipes}) {
-	const [recipeNode, setRecipeNode] = useState(false);
+	// While not being used anymore due to refactoring, this is the way to get a prop from a child (for future reference)
+	// const [recipeNode, setRecipeNode] = useState(false);
 	
-	const getRecipeNode = childprop => {
-		// console.log(childprop)
-		setRecipeNode(childprop)
-	}
+	// const getRecipeNode = childprop => {
+	// 	console.log(childprop)
+	// 	setRecipeNode(childprop)
+	// }
+	// The <MainRecipe /> component would need to receive a prop to pass this function (not calling!) so this component has access to that node
+	// like <MainRecipe getNode={getRecipeNode} />
 
 	return (
 		<Routes>
       <Route path='/' element={<Introduction recipes={recipes} />} /> 
-		  {recipes.map((recipe, index) => <Route key={index} path={recipe.fields.routePath} element={<MainRecipe allRecipes={recipes} recipe={recipe} getNode={getRecipeNode} />} /> )}
+		  {recipes.map((recipe, index) => <Route key={index} path={recipe.fields.routePath} element={<MainRecipe allRecipes={recipes} recipe={recipe} />} /> )}
 		</Routes>
 	)
 }
@@ -27,20 +30,14 @@ function RecipeRoutes({recipes}) {
 function App() {
 	const [recipes, setRecipes] = useState(false);
 
-	// While not being used, this is the way to get a prop from a child (for future reference):
-	// const [recipeNode, setRecipeNode] = useState(false);
-	
-	// const getRecipeNode = childprop => {
-	// 	console.log(childprop)
-	// 	setRecipeNode(childprop)
-	// }
-
+	// Contentful data fetch here, and storing it in a variable
 	useEffect(() => {
 		(async () => {
 			setRecipes(await getRecipes());
 		})();
 	}, []);
 
+	// Waiting for the data to be fetched before rendering components and passing down data 
 	return (
 		recipes && (
 			<>
@@ -48,7 +45,7 @@ function App() {
 				<NavigationBar recipes={recipes} />
 				<main>
 					<div className="jumbotron text-center">
-						<h1 className="page-title">Oma's Cookblog</h1>
+						<h1 className="page-title">Smart Cuisine</h1>
 					</div>
 					<div className="container jumbotron-container">
 						<div className="row jumbotron-row">

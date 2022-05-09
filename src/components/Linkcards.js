@@ -1,14 +1,17 @@
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-
+// This component gets and maps all recipes and generates a card with an image, short text and a link button for each
 export default function LinkCards({ recipe, giveNode }) {
-  // console.log(giveNode)
   return recipe.map((oneRecipe, index) => <Recipe key={index} recipes={oneRecipe} recipeNode={giveNode} />)
 }
 
+// This component sets how a single card is populated. It receives the recipes fetched data, and a DOM node from <MainRecipe /> parent
+// component to be referenced for a scroll functionality.
 function Recipe ({ recipes, recipeNode }) {
   const recipeCard = recipeNode;
+
+  // WIP, this is meant to change the styling of the button depending on what type of type of recipe it has (Starter, Main or Dessert)
   const [recipeType, setRecipeType] = useState(recipes.fields.recipeType)
 
   const recipeTypeCheck = recipeType => {
@@ -26,11 +29,15 @@ function Recipe ({ recipes, recipeNode }) {
   useEffect(() => {
 
   }, [])
+  //WIP end
 
+  // Upon link click, the window references to a dom node (rendered by parent container, stored with useRef, and passed down to this
+  // container through props), and scrolls smoothly to center the main recipe on the browser.
   const handleClick = (recipeCard) => {
     recipeCard.scrollIntoView({behavior: "smooth"})
   }
 
+  // Each Linkcard has a React Router NavLink component to bring the user to the relevant route for the recipe
   return (
     <> 
     <div className="col-lg-4 diff-recipe mt-5">

@@ -10,6 +10,8 @@ function IngrTable({ recipe }) {
   //Contentful rich text rendering
   const options = {
     renderNode: {
+      // Rendering a table inside rich text here. Since Contentful doesn't provide a semantic html table (which we need for Bootstrap styling)
+      // we have to pass the first row inside <thead> and the remainder inside <tbody>
       [BLOCKS.TABLE]: (node, children) => (
         <table className="table table-bordered table-striped">
           <thead>{children[0]}</thead>
@@ -17,6 +19,8 @@ function IngrTable({ recipe }) {
         </table>
       ),
 
+      // We want three rows in this table, and all apart from the header need a checkbox inside. Since checkboxes can't be added in Contenful,
+      // we have to create an extra row manually, add static content for the header row, and checkboxes for the body rows
       [BLOCKS.TABLE_ROW]: (node, children) => {
         const isHeader = children.some((child) => child.type === "th");
 
@@ -42,11 +46,14 @@ function IngrTable({ recipe }) {
     },
   };
 
+  //And finally we render the table with Contentful's rich text renderer, passing the table object as the first argument
+  //and our rendering setup as the second argument
   return (
       documentToReactComponents(ingredients, options)
   );
 }
 
+//Component to map a list out of the recipe description string 
 function PrepSteps({ prep }) {
   const makeList = prep.split("\n");
   return (
@@ -58,14 +65,19 @@ function PrepSteps({ prep }) {
   );
 }
 
-export default function MainRecipe({ allRecipes, recipe, getNode }) {
+// Main recipe gets all recipes to pass to Linkcards and one recipe to populate its content
+export default function MainRecipe({ allRecipes, recipe }) {
   const mainRecipeDiv = useRef()
 
+  // Once the node is rendered, the page scrolls to center it in the screen
   useEffect(() => {
-    getNode(mainRecipeDiv.current)
+    // getNode(mainRecipeDiv.current) --> This would be used to pass the node reference for a parent component, a function prop getNode would
+    // need to be passed to this component for it to be accessible in the parent component (<App />)
     mainRecipeDiv.current.scrollIntoView({behavior: "smooth"})
   }, [])
 
+  // Rendering a card with an image, rich text table, preparation steps, a linked/fixed Winecard component, 
+  // and Linkcards with the remaining recipes
   return (
     <>
       <div ref={mainRecipeDiv} className="card col-12 col-lg-6" id="main-recipe-card">

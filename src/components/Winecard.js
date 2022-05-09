@@ -1,5 +1,7 @@
 export default function Winecard ({wine}) {
 
+  // Winecard component that populates a wine card in relation to the chosen recipe (the idea is that each recipe has a specific
+  // wine suggestion attached to it)
   return (
     <div className="col-12 col-lg-6 mb-4 wine-card">
       <div className="card wine-card-style">

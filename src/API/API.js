@@ -1,17 +1,12 @@
+// This file is meant for fetching the content setup in Contentful. First we import the credentials in a hidden file
 import credentials from './credentials.json';
-import * as contentful from 'contentful';
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
+// We create the client and pass the credentials
 const contentfulClient = require('contentful');
-
 const client = contentfulClient.createClient(credentials);
-export default client;
 
-const getAllData = async () => { 
-  const allData = await client.getEntries()
-  return allData.items;
-}
-
+// Through getEntries content_type and select we retrieve only the relevant entries from the Contentful fetch.
+// Order is being used so the returned array order is a bit more static (it sorts the returned array by publish date by default)
 const getRecipes = async () => {
   const allRecipes = await client.getEntries({
     content_type: 'blog',
@@ -21,8 +16,6 @@ const getRecipes = async () => {
   return allRecipes.items;
 }
 
-
 export { 
-  getAllData,
   getRecipes
 }
